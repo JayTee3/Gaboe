@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Exam Grades
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Teacher's Examination Area </p>
+{% endblock%}
+
+
+{% block main %}
+
+<div class="container">
+ <form action="/exam" method="post">
+       <div class="form-floating">
+        <select name="student" class="form-select mb-2" id="floatingSelectGrid" aria-label="Floating label select example">
+           <option selected>Open this select menu</option>
+            {% for name in students%}
+            <option value="{{ name["id"]}}">{{ name["first_name"] }} {{ name.last_name }}</option>
+            {%endfor%}
+        </select>
+         <label for="floatingSelect">Select Student Name</label>
+         </div>
+        <label class="lab"><b>Student Comment</b></label>
+        <div class="input-group">
+        <textarea class="form-control" name="comment" rows="3" required></textarea>
+        </div>
+          <label class="lab"><b>Exam Grade</b></label>
+        <div class="input-group ms-3 pe-4">
+        <input class="form-control" name="exam_score" type="number" min="0">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    </div>
+ {% endblock %}

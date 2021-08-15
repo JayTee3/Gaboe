@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Account
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Teacher's Account Area </p>
+{% endblock%}
+
+
+
+
+{% block main %}
+
+<div style="overflow-x:auto;">
+
+
+  <div class="container text-center">
+       <div class="h1 mb-3 mt-2">
+        <i class=" bi bi-person-circle"></i>
+       </div>
+      {% for name in teacher %}
+     <h1> {{name.first_name}} {{name.last_name}} </h1>
+      <p> {{name.email}}</p>
+      <p> Student Grade Level: 9</p>
+      {% endfor %}
+
+     <hr>
+     </div>
+
+
+    <div class="container">
+      <form action="/account" method="post">
+          <label class="lab"><b>Student Email</b></label>
+           <div class="input-group">
+            <input class="form-control" name="email" type="text" placeholder="Enter Class Subject" required >
+             </div>
+        <label class="lab"><b>Class Name</b></label>
+        <div class="input-group">
+        <input class="form-control" name="class_name" type="text" placeholder="Enter Class Subject" required >
+        </div>
+        <label class="lab"><b>Class Code</b></label>
+        <div class="input-group mb-3">
+        <input class="form-control" name="class_code" type="text" placeholder="Enter Class Code" required >
+        </div>
+        <button type="submit" class="btn btn-primary"> Submit</button>
+    </form>
+    </div>
+
+{% endblock%}
+

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Assessment
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Teacher's Assessment Area </p>
+{% endblock%}
+
+
+{% block main %}
+<div class="container">
+<form action="/assessment" method="post">
+  <div class="contain">
+    <h1>Assignment</h1>
+    <p>Enter assignment information below </p>
+    <hr>
+    <label for="title"><b>Assignment Title </b></label>
+    <input type="text" placeholder="Enter Assignment Title" name="title" required>
+
+    <label for="total"><b>Assignment Total </b></label><br>
+    <input type="number" name="total"min="0" required><br>
+
+    <label for="category"><b>Assignment Category </b></label><br>
+    <input type="text" name="category" placeholder="Enter assignment category" required>
+
+    <label for="date"><b> Date </b></label><br>
+    <input type="date"  name="date">
+    <hr>
+    <button type="submit" class="registerbtn">Post Assignment</button>
+  </div>
+  </form>
+  </div>
+ {% endblock %}

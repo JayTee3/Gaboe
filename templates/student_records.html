@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Student Profile
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Student Profile Area </p>
+{% endblock%}
+
+
+
+
+{% block main %}
+
+<div style="overflow-x:auto;">
+ <div class="container mt-3">
+  <h3><b>{{records[0]["first_name"] }} {{ records[0]["last_name"] }}</b></h3>
+  </div>
+  <hr>
+
+            <!-- Table-->
+              <div class="container">
+                {% if records %}
+              <table class="table table-striped table-hover mt-3  mb-3" class="text-center">
+                <tr>
+                  <th class="table-dark" >Assignment Title</th>
+                  <th class="table-dark" >Category</th>
+                  <th class="table-dark">Subject</th>
+                  <th class="table-dark">Total Points</th>
+                  <th class="table-dark">Studnet Score</th>
+                  <th class="table-dark">Average</th>
+
+
+                  {% for data in records %}
+                <tr>
+                  <td><b>{{ data.title}}</b></td>
+                  <td><b>{{ data.category }}</b></td>
+                  <td><b>{{ data.subject }}</b></td>
+                  <td><b>{{ data.total_mark }}</b></td>
+                  <td><b>{{ data.students_score }}</b></td>
+                  <td><b>{{ (data.students_score/ data.total_mark*100/1)|round|int}}%</b></td>
+                  {% endfor %}
+                 </tr>
+              </table>
+              <table class="table table-striped table-hover mt-3 mb-3 text-center">
+                <th> Class Average</th>
+                <th> Letter Grade</th>
+                <tr>
+                  <td><b> {{ avg }}%</b></td>
+                  <td><b> {{ letter_grade }}</b></td>
+                </tr>
+
+              </table>
+              {% endif %}
+            </div>
+             <div class="page-bottom">
+
+              </div>
+            </div>
+            </div>
+
+{% endblock%}
+

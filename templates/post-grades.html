@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+   Post Assessment
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Teacher's Assessment Area </p>
+{% endblock%}
+
+
+{% block main %}
+
+<div class="container mt-3">
+    {% if detials %}
+
+    <h1>Assignment:{{ detials[0]["title"]}}</h1>
+
+    <h3>Total Market: {{ detials[0]["total_mark"]}}</h3>
+
+    <h2>Date:{{ detials[0]["date"]}}</h2>
+
+    <p>Please fill in this form to create an account.</p>
+
+    {% else %}
+     <h1>Assignment</h1>
+
+    <h3>Total Market: </h3>
+
+    <h2>Date:</h2>
+
+    <p>Please fill in this form to create an account.</p>
+
+    {% endif %}
+
+    <hr>
+
+ <form action="/post-grades" method="post">
+       <div class="form-floating">
+        <select name="student" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+           <option selected required>Open this select menu</option>
+            {% for name in students%}
+            <option value="{{ name.id }}" >{{ name["first_name"] }}</option>
+            {%endfor%}
+        </select>
+         <label for="floatingSelect">Select Student Name</label>
+         </div>
+        <label class="lab"><b>Student Grade</b></label>
+        <div class="input-group mb-3">
+        <input class="form-control" name="score" type="number" min="0" required >
+        </div>
+        <button type="submit" class="btn btn-primary">Post Grade</button>
+    </form>
+    </div>
+
+{% endblock%}
+

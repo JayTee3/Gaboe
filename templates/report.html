@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Student Profile
+{% endblock %}
+
+{% block header %}
+  <h1>G.A.B.O.E</h1>
+  <p> Student Profile Area </p>
+{% endblock%}
+
+
+
+
+{% block main %}
+
+<div style="overflow-x:auto;">
+
+
+  <div class="container mt-3">
+       <div class="position-relative">
+        <div class="position-absolute top-0 end-0">
+             <h1>Institution Name </h1>
+             <h5>Institution Email</h5>
+             <p>Institution Telephone number</p>
+        </div>
+       </div>
+      {% for name in student %}
+     <h2> {{name.first_name}} {{name.last_name}} </h2>
+      <p> {{name.email}}</p>
+      <p>  Grade Level: 9</p>
+      {% endfor %}
+     <hr>
+  </div>
+
+
+    <div class="container">
+              <table class="table table-striped table-hover mt-2  mb-3">
+                <tr>
+                  <th class="table-dark">Parent</th>
+                  <th class="table-dark">Email</th>
+                  <th class="table-dark">Telephone</th>
+
+
+                  {% for info in student %}
+                <tr>
+                  <td><b>{{ info.parent}}</b></td>
+                  <td><b>{{info.parent_email}}</b></td>
+                  <td><b>{{ info.phone_number }}</b></td>
+                 </tr>
+                  {% endfor%}
+              </table>
+            </div>
+            <hr>
+            <!--Second Table -->
+
+     <div class="container">
+       {% if message %}
+          <div class="alert alert-warning" role="alert">
+                {{ message}}
+            </div>
+             {% endif %}
+
+             <table class="table table-bordered table-hover">
+               <tr>
+                 <th>Subject</th>
+                 <th>Comment</th>
+                 <th>Term Grade</th>
+                 <th>Exam Grade</th>
+                 <th>Final Grade</th>
+                 <th>Letter Grade</th>
+               </tr>
+               {% for result in results %}
+               <tr>
+                 <td>{{ result.class_name }}
+                  <P><b>{{result.first_name}} {{ result.last_name }}</b></P>
+                 </td>
+                 <td>{{ result.teacher_comment }}</td>
+                 <td>{{ result.term_avg }} %</td>
+                 <td>{{ result.exam_grade }}%</td>
+                 <td>{{ result.final_avg }}%</td>
+                 <td>{{ result.letter_grade }}</td>
+               </tr>
+                {% endfor %}
+               <tr>
+                    <td colspan="5"><b>G.P.A</b></td>
+                    <td><b>{{ gpa }}</b></td>
+               </tr>
+
+             </table>
+             </div>
+
+{% endblock%}
+

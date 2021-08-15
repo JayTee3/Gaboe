@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Gaboe
+{% endblock %}
+
+
+    <body>
+        <!--Main header -->
+        <div class="header">
+            {% block header %}
+          <h1>G.A.B.O.E</h1>
+          <p>Gradebook. Automating. Backup. Operational. Engine </p>
+          {%endblock%}
+      </div>
+      <!--main nav bar-->
+         {% block main %}
+        <div class="row">
+          <div class="side">
+            <h3><b>Equipmenting Educators and Parents</b></h3>
+               <img src="/static/logo.jpg" alt="Company logo" width="100" height="100">
+                <p>"Dynamically change the way academical information is communicated."</p>
+                <h5>Who would have known connecting and transferring information would be this easy.</h5>
+                 <p></p>
+                 <img src="/static/parent.jpg" alt="Father and Daughter" width="100" height="100">
+                 <br>
+                 <h5>Reaching out has just gotten easier.</h5>
+                 <img src="/static/teacher1.jpg" alt="Teacher" width="100" height="100">
+                <br>
+                <h5><b>Encourage success, and inspiring dreams.</b></h5>
+                 <img src="/static/student.jfif" alt="Students" width="100" height="100">
+                 <p>"My child grades increased in key subject area, all of his hardwork paid off and I was able to track the progress using GABOE."</p>
+                 <p>"It is incredibly how using GABOE has change my students productivity."</p>
+                 <p>"Communicating to our students parents has never been easier"</p>
+           </div>
+           <div class="main">
+             <h2><b>Connecting Parents</b></h2>
+             <h5>Giving parents total access</h5>
+              <img src="/static/parent looking at computer.jfif" alt="Adult looking at computer with child" width="100" height="300">
+               <h3><b>G.A.B.O.E, allows parent to stay current and connected with their child's progress in school.</b></h3>
+                <p>
+                Flexible at your finger tips, the new and easy way to keep track of student's acdemical performace any where and any time. With a click of a button or swip of the thumb parent can
+                gain incerible insight about their child assignments and test scores. Students can easily view their grades and comments about school work and performance. This encourage them to be more
+                proactive and hold them accountable for their learning processes. While hard copy gradebooks also share this information with students, it is not as quick or easy for them to access.
+                With G.A.B.O.E the individual student can gain feedback instantly.
+                </p>
+                 <br>
+                  <h2><b>Connecting Teachers</b></h2>
+                    <h5>Helping Teacher to reach further</h5>
+                 <img src="/static/teacher.jpg" alt="teacher" width="100" height="300">
+                  <h3><b>Communication made simple, effective and easy</b></h3>
+                   <p>
+                       Educational technology allows teachers to communicate with parents and guardians with the highest level of efficiency.
+                       Giving feedback on assignment and reports on student activates. This helps to identify reinforcement areas as will as assist
+                       in the analyzing data to help discover trends in student's academical journey.
+                   </p>
+                   </div>
+                 </div>
+            {% endblock %}
+              <div class="footer">
+                 <P>&#169;Gaboe Educational Company</P>
+                  <P>Tel: 242-345-6789</p>
+                  <P>email: connect@gaboe.com</p>
+            </div>
+        </body>
+    </html>

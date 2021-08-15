@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile page
+{% endblock %}
+
+            {% block header %}
+          <h1>G.A.B.O.E</h1>
+          {%endblock%}
+      </div>
+      <!--main nav bar-->
+         {% block main %}
+        <div class="row">
+          <div class="side">
+         <div class="card mb-2 pt-2 pl-l" style="width: 23rem;">
+            {% for teacher in name %}
+            <h3 class="text-center"><b> Welcome {{ teacher["first_name"]}}</b></h3>
+            <h5 class="text-center">Equipmenting Educators and Parents</h5>
+            <h5 class="text-center mb-5"> Subject: {{ teacher.subject }}</h5>
+            {% endfor %}
+         </div>
+            <h5 class="text-center mt-4"><b>Student list</b></h5>
+            {% for name in students %}
+            <div class="fakeimg bg-dark text-center">
+                <a class="bg-dark" href="/student_profile/{{name.id}}" style="text-decoration:none; color:white; height:50px;">{{ name.first_name }} {{name.last_name }}</a>
+                </div><br>
+                  {%endfor%}
+
+            <!-- End of side div do not cross-->
+              </div>
+
+           <div class="main">
+
+              <section class="p-5">
+                  <div class="container">
+                    <div class="row text-center">
+                {% for assignment in assignments %}
+                    <div class="col-md mb-3">
+                    <div class="card bg-dark text-light px-3">
+                    <div class="card-body text-center">
+                        <div class="h1 mb-3">
+                            <i class=" bi bi-person-square"></i>
+                        </div>
+                        <h3 class="card-title">
+                           {{assignment.title}}
+                        </h3>
+                        <p class="card-text">
+                            Assignment out of: {{assignment.total_mark}}
+                        </P>
+                        <p class="card-text">
+                            Assignment due date: {{assignment.date}}
+                        </p>
+                        <p class="card-text">
+                            Assignment category: {{assignment.category}}
+                        </p>
+                        <div class="d-flex flex-row justify-content-center mb-3">
+                          <a href="/assignment/{{assignment.assignment_id}}" class="btn btn-outline-primary btn-sm ms-2">View Assignment</a>
+                          <a href="/edit/{{assignment.assignment_id}}" class="btn btn-outline-warning btn-sm ms-2">Edit Assignment</a>
+                          <a href="/delete/{{assignment.assignment_id}}" class="btn btn-outline-danger btn-sm ms-2 ">Delete Assignment</a>
+                        </div>
+                    </div>
+                  </div>
+                 </div>
+                   {% endfor %}
+              </section>
+              <div class="page-bottom">
+
+              </div>
+            </div>
+            </div>
+    {% endblock %}
