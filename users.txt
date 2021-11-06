@@ -19,6 +19,6 @@ CREATE TABLE scores ( score_id INTEGER NOT NULL, student_assignment_id INTEGER N
 
 CREATE TABLE 'student' (id INTEGER, first_name TEXT NOT NULL, last_name TEXT NOT NULL, email TEXT NOT NULL UNIQUE, parent TEXT NOT NULL,'parent_email' text NOT NULL, phone_number TEXT NOT NULL,'hash' TEXT NOT NULL,PRIMARY KEY(id))
 
-CREATE TABLE teacher (id INTEGER, first_name TEXT NOT NULL, last_name TEXT NOT NULL, email TEXT NOT NULL UNIQUE, subject TEXT NOT NULL, hash TEXT NOT NULL, PRIMARY KEY(id))
+CREATE TABLE teacgit commit -m "first commit"her (id INTEGER, first_name TEXT NOT NULL, last_name TEXT NOT NULL, email TEXT NOT NULL UNIQUE, subject TEXT NOT NULL, hash TEXT NOT NULL, PRIMARY KEY(id))
 
 CREATE TABLE records ( id INTEGER NOT NULL, student_id INTEGER NOT NULL UNIQUE, teacher_id INTEGER NOT NULL, term_avg INTEGER, exam_grade INTEGER,final_avg INTEGER, teacher_comment TEXT, letter_grade TEXT, PRIMARY KEY(id), FOREIGN KEY(teacher_id) REFERENCES teacher(id) ON DELETE CASCADE, FOREIGN KEY(student_id) REFERENCES student(id) ON DELETE CASCADE)

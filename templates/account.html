@@ -33,10 +33,16 @@
 
     <div class="container">
       <form action="/account" method="post">
-          <label class="lab"><b>Student Email</b></label>
-           <div class="input-group">
-            <input class="form-control" name="email" type="text" placeholder="Enter Class Subject" required >
-             </div>
+           <select name="student" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+           <option selected required>Select Student Menu</option>
+            {% for name in students%}
+            <option value="{{ name.id }}" >{{ name["first_name"] }} {{ name["last_name"] }}</option>
+            {%endfor%}
+        </select>
+          <!--<label class="lab"><b>Student Email</b></label>-->
+          <!-- <div class="input-group">-->
+          <!--  <input class="form-control" name="email" type="text" placeholder="Enter Class Subject" required >-->
+          <!--   </div>-->
         <label class="lab"><b>Class Name</b></label>
         <div class="input-group">
         <input class="form-control" name="class_name" type="text" placeholder="Enter Class Subject" required >

@@ -635,6 +635,7 @@ def delete(assignment_id):
 def account():
     current_user = session["teacher_id"]
     teacher = db.execute("SELECT * FROM teacher WHERE id =?", current_user)
+    student = db.execute("SELECT * FROM student")
 
     if request.method == "POST":
         class_code = request.form.get("class_code")
@@ -663,7 +664,7 @@ def account():
 
 
 
-    return render_template("account.html", teacher=teacher)
+    return render_template("account.html", teacher=teacher, students=student)
 
 
 
